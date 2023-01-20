@@ -1,0 +1,29 @@
+from tkinter import *
+
+counter = 0
+
+def add():
+    global counter
+    counter += 1
+    label_counter.delete(0,END)
+    label_counter.insert(0,str(counter))
+
+# main frame
+window = Tk()
+window.geometry("1080x720")
+window.title("EZ")
+window.config(background='#22557B')
+
+#start frame
+main_frame = Frame(window, bg='#22557B')
+
+#Start counter
+label_counter = Entry(main_frame, font=("Courier", 40), bg='#22557B', fg='white',)
+label_counter.pack()
+label_counter.insert(0, str(counter))
+button = Button(main_frame, text="Add", font=("Courier", 40), bg = '#22557B', fg='white', command=add)
+button.pack()
+
+label_counter.pack()
+main_frame.pack(expand=YES)
+window.mainloop()
